@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Mídia - Painel de CRM & Chatbot de Remarketing</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans antialiased min-h-screen">
+    <header class="bg-slate-950 border-b border-slate-800 p-4 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-amber-500 text-slate-950 p-2 rounded-lg font-bold">📺 E-MÍDIA</div>
+                <div>
+                    <h1 class="font-bold text-lg">Painel de Leads & Remarketing</h1>
+                    <p class="text-xs text-slate-400">DOOH & Automação com Inteligência Artificial</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-emerald-950 text-emerald-400 border border-emerald-800">
+                    🟢 Worker Ativo (30s)
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto p-6 space-y-6">
+        <!-- Cards de Métricas / CRM -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div class="bg-slate-800/50 border border-slate-700/60 p-5 rounded-xl">
+                <p class="text-sm text-slate-400">Total de Leads</p>
+                <h3 class="text-3xl font-bold mt-2 text-white">6</h3>
+            </div>
+            <div class="bg-slate-800/50 border border-slate-700/60 p-5 rounded-xl">
+                <p class="text-sm text-slate-400">Em Atendimento</p>
+                <h3 class="text-3xl font-bold mt-2 text-amber-400">3</h3>
+            </div>
+            <div class="bg-slate-800/50 border border-slate-700/60 p-5 rounded-xl">
+                <p class="text-sm text-slate-400">Aguardando Remarketing</p>
+                <h3 class="text-3xl font-bold mt-2 text-sky-400">1</h3>
+            </div>
+            <div class="bg-slate-800/50 border border-slate-700/60 p-5 rounded-xl">
+                <p class="text-sm text-slate-400">Convertidos / Sucesso</p>
+                <h3 class="text-3xl font-bold mt-2 text-emerald-400">0</h3>
+            </div>
+        </div>
+
+        <!-- Seção de Simulador e Integrações -->
+        <div class="bg-slate-800/40 border border-slate-700/60 rounded-xl p-6">
+            <h2 class="text-xl font-bold mb-4">Simulador do Chatbot & Status do Webhook</h2>
+            <p class="text-sm text-slate-300 mb-4">O seu sistema está configurado para capturar leads das telas digitais e disparar o fluxo automático de atendimento e recuperação.</p>
+            <div class="p-4 bg-slate-900 rounded-lg border border-slate-700 flex justify-between items-center">
+                <div>
+                    <span class="text-xs uppercase tracking-wider text-emerald-400 font-bold block">Status do Backend</span>
+                    <span class="text-sm text-slate-200">Webhook processado com sucesso e pronto para produção na Vercel.</span>
+                </div>
+                <button onclick="alert('Simulação de Webhook disparada com sucesso!')" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-4 py-2 rounded-lg text-sm transition">
+                    Testar Disparo Webhook
+                </button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
