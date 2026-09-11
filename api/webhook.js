@@ -1,27 +1,28 @@
 export default function handler(req, res) {
+  // Tratamento para a verificação do Meta (GET)
   if (req.method === 'GET') {
     const mode = req.query['hub.mode'];
     const token = req.query['hub.verify_token'];
     const challenge = req.query['hub.challenge'];
 
-    const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
+    const VERIFY_TOKEN = process.env.VERIFY_TOKEN || 'wsf197530';
 
-    if (mode && token) {
-      if (mode === 'subscribe' && token === VERIFY_TOKEN) {
-        console.log('WEBHOOK_VERIFIED');
-        return res.status(200).send(challenge);
-      } else {
-        return res.status(403).json({ error: 'Token de verificação inválido' });
-      }
+    console.log('Recebida requisição GET de verificação:', { mode, token, challenge });
+
+    if (mode === 'subscribe' && token === VERIFY_TOKEN) {
+      console.log('WEBHOOK_VERIFIED com sucesso!');
+      return res.status(200).send(challenge);
     }
-    return res.status(400).json({ error: 'Parâmetros ausentes' });
+    
+    console.log('Falha na verificação. Token ou modo inválidos.');
+    return res.status(403).json({ error: 'Token de verificação inválido' });
   }
 
+  // Tratamento para recebimento de mensagens (POST)
   if (req.method === 'POST') {
-    console.log('Mensagem recebida:', JSON.stringify(req.body, null, 2));
+    console.log('Evento POST recebido:', JSON.stringify(req.body, null, 2));
     return res.status(200).send('EVENT_RECEIVED');
   }
 
-  res.setHeader('Allow', ['GET', 'POST']);
-  res.status(405).end(`Método ${req.method} não permitido`);
+  return res.status(405).json({ error: `Método ${req.method} não permitido` });
 }
