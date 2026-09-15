@@ -1,5 +1,8 @@
 {
-  "routes": [
-    { "src": "/api/webhook", "dest": "/api/webhook.js" }
+  "crons": [
+    {
+      "path": "/api/outbound",
+      "schedule": "0 10,14 * * *"
+    }
   ]
 }
